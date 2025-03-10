@@ -10,4 +10,6 @@ import java.util.Optional;
 public interface UserRepository extends JpaRepository<Usermod, Long> {
     Optional<Usermod> findOneByEmailAndPassword(String email, String password);
     Usermod findByEmail(String email);
+
+    Optional<Usermod> findByResetToken(String resetToken);
 }

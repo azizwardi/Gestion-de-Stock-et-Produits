@@ -5,6 +5,7 @@ public class UserDTO {
     private String username;
     private String email;
     private String password;
+    private String resetToken; // Properly declare the field
 
     public UserDTO() {
     }
@@ -47,5 +48,13 @@ public class UserDTO {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getResetToken() {
+        return resetToken;
+    }
+
+    public void setResetToken(String resetToken) {
+        this.resetToken = resetToken;
     }
 }
