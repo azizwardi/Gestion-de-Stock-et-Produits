@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>tn.esprit</groupId>
-    <artifactId>Gestion_de_Stock_et_Produits</artifactId>
+    <artifactId>GestionProduits</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>Gestion de Stock et Produits</name>
     <description>Gestion de Stock et Produits</description>
