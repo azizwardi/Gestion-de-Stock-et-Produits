@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.io.FileOutputStream;
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class CommandeService {
@@ -47,6 +48,7 @@ public class CommandeService {
         Commande commande = getCommandeById(id);
         commandeRepository.delete(commande);
     }
+
     public void generateInvoicePDF(Long commandeId, String filePath) throws Exception {
         Commande commande = getCommandeById(commandeId);
 
@@ -63,5 +65,24 @@ public class CommandeService {
         document.add(new Paragraph("Statut : " + commande.getStatut()));
 
         document.close();
+    }
+
+    public String generateTrackingNumber(Long commandeId) {
+        Commande commande = getCommandeById(commandeId);
+
+        // Vérifier si la commande est éligible (par exemple, doit être "EN_COURS")
+        if (!"VALIDEE".equals(commande.getStatut().name())) {
+            throw new IllegalStateException("Le numéro de suivi ne peut être généré que pour une commande en cours");
+        }
+
+        // Générer un numéro de suivi unique
+        String trackingNumber = "TRK-" + UUID.randomUUID().toString().substring(0, 8).toUpperCase();
+
+        // Mettre à jour la commande
+        commande.setTrackingNumber(trackingNumber);
+        commande.setStatut(StatutCommande.EXPEDIEE); // Mise à jour du statut
+        commandeRepository.save(commande);
+
+        return trackingNumber;
     }
 }

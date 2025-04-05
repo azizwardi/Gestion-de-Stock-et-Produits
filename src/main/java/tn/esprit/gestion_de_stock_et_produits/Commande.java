@@ -6,7 +6,6 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
-
 public class Commande {
 
     @Id
@@ -27,6 +26,9 @@ public class Commande {
 
     @Enumerated(EnumType.STRING)
     private StatutCommande statut;
+
+    @Column
+    private String trackingNumber; // Nouveau champ pour le numéro de suivi
 
     // Constructeurs
     public Commande() {
@@ -88,5 +90,12 @@ public class Commande {
     public void setStatut(StatutCommande statut) {
         this.statut = statut;
     }
-}
 
+    public String getTrackingNumber() {
+        return trackingNumber;
+    }
+
+    public void setTrackingNumber(String trackingNumber) {
+        this.trackingNumber = trackingNumber;
+    }
+}

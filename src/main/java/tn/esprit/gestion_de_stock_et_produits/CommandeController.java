@@ -72,6 +72,7 @@ public class CommandeController {
         commandeService.deleteCommande(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
+
     @Operation(summary = "Générer une facture PDF", description = "Génère un fichier PDF pour une commande spécifique")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Facture générée avec succès"),
@@ -86,5 +87,18 @@ public class CommandeController {
         } catch (Exception e) {
             return new ResponseEntity<>("Erreur lors de la génération : " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
+    }
+
+    @Operation(summary = "Générer un numéro de suivi",
+            description = "Génère et associe un numéro de suivi unique à une commande")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Numéro de suivi généré avec succès"),
+            @ApiResponse(responseCode = "400", description = "Commande non éligible pour le suivi"),
+            @ApiResponse(responseCode = "404", description = "Commande non trouvée")
+    })
+    @PostMapping("/{id}/tracking")
+    public ResponseEntity<String> generateTrackingNumber(@PathVariable Long id) {
+        String trackingNumber = commandeService.generateTrackingNumber(id);
+        return new ResponseEntity<>("Numéro de suivi généré : " + trackingNumber, HttpStatus.OK);
     }
 }
