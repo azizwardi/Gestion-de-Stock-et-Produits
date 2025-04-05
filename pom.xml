@@ -11,11 +11,11 @@
     <groupId>tn.esprit</groupId>
     <artifactId>Gestion_de_Stock_et_Produits</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>Gestion de Stock et Produits</name>
-    <description>Gestion de Stock et Produits</description>
+    <name>Stock</name>
+    <description>Stock</description>
 
     <properties>
-        <java.version>20</java.version> <!-- Mis à jour pour correspondre à ton JDK -->
+        <java.version>17</java.version> <!-- Mis à jour pour correspondre à ton JDK -->
     </properties>
 
     <dependencies>
