@@ -1,0 +1,12 @@
+C:\Users\Ghofrane\Desktop\Ms\GestionUser\src\main\java\tn\esprit\gestion_de_stock_et_produits\GestionDeUser.java
+C:\Users\Ghofrane\Desktop\Ms\GestionUser\src\main\java\tn\esprit\gestion_de_stock_et_produits\usermicroservice\controller\ForgotPasswordController.java
+C:\Users\Ghofrane\Desktop\Ms\GestionUser\src\main\java\tn\esprit\gestion_de_stock_et_produits\usermicroservice\controller\UserController.java
+C:\Users\Ghofrane\Desktop\Ms\GestionUser\src\main\java\tn\esprit\gestion_de_stock_et_produits\usermicroservice\DTO\LoginDTO.java
+C:\Users\Ghofrane\Desktop\Ms\GestionUser\src\main\java\tn\esprit\gestion_de_stock_et_produits\usermicroservice\DTO\UserDTO.java
+C:\Users\Ghofrane\Desktop\Ms\GestionUser\src\main\java\tn\esprit\gestion_de_stock_et_produits\usermicroservice\entity\Usermod.java
+C:\Users\Ghofrane\Desktop\Ms\GestionUser\src\main\java\tn\esprit\gestion_de_stock_et_produits\usermicroservice\payload\LoginMessage.java
+C:\Users\Ghofrane\Desktop\Ms\GestionUser\src\main\java\tn\esprit\gestion_de_stock_et_produits\usermicroservice\Repository\UserRepository.java
+C:\Users\Ghofrane\Desktop\Ms\GestionUser\src\main\java\tn\esprit\gestion_de_stock_et_produits\usermicroservice\security\SecurityConfig.java
+C:\Users\Ghofrane\Desktop\Ms\GestionUser\src\main\java\tn\esprit\gestion_de_stock_et_produits\usermicroservice\service\ForgotPasswordService.java
+C:\Users\Ghofrane\Desktop\Ms\GestionUser\src\main\java\tn\esprit\gestion_de_stock_et_produits\usermicroservice\service\IUserService.java
+C:\Users\Ghofrane\Desktop\Ms\GestionUser\src\main\java\tn\esprit\gestion_de_stock_et_produits\usermicroservice\service\UserService.java

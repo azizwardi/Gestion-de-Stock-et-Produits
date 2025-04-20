@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="EurekaServer" />
+        <module name="Gestion_de_Stock" />
+        <module name="Gateway" />
+        <module name="GestionProduits" />
+        <module name="Gestion_de_User" />
+        <module name="Gestion_de_Commandes" />
+        <module name="Gestion_de_Commande" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="Gestion_de_Commande" target="17" />
+      <module name="Gestion_de_Stock (1)" target="17" />
+      <module name="Gestion_de_Stock (2)" target="17" />
+      <module name="Gestion_de_Stock_et_Produits" target="17" />
+      <module name="Gestion_de_Stock_et_Produits (1)" target="17" />
+      <module name="Gestion_de_Stock_et_Produits (1) (com.esprit.gestion_de_stock_et_produits)" target="17" />
+      <module name="Gestion_de_Stock_et_Produits (2)" target="17" />
+      <module name="Gestion_de_Stock_et_Produits (3)" target="17" />
+      <module name="Gestion_de_Stock_et_Produits (4)" target="17" />
+      <module name="GestionStock" target="17" />
+      <module name="MSStock" target="17" />
+      <module name="MSStock (1)" target="17" />
+      <module name="MSStock (2)" target="17" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="EurekaServer" options="-parameters" />
+      <module name="Gateway" options="-parameters" />
+      <module name="GestionProduits" options="-parameters" />
+      <module name="GestionStock" options="-parameters" />
+      <module name="Gestion_de_Commande" options="-parameters" />
+      <module name="Gestion_de_Commandes" options="-parameters" />
+      <module name="Gestion_de_Stock" options="-parameters" />
+      <module name="Gestion_de_Stock (1)" options="-parameters" />
+      <module name="Gestion_de_Stock (2)" options="-parameters" />
+      <module name="Gestion_de_Stock_et_Produits" options="-parameters" />
+      <module name="Gestion_de_Stock_et_Produits (1)" options="-parameters" />
+      <module name="Gestion_de_Stock_et_Produits (1) (com.esprit.gestion_de_stock_et_produits)" options="-parameters" />
+      <module name="Gestion_de_Stock_et_Produits (2)" options="-parameters" />
+      <module name="Gestion_de_Stock_et_Produits (3)" options="-parameters" />
+      <module name="Gestion_de_Stock_et_Produits (4)" options="-parameters" />
+      <module name="Gestion_de_User" options="-parameters" />
+      <module name="MSStock" options="-parameters" />
+      <module name="MSStock (1)" options="-parameters" />
+      <module name="MSStock (2)" options="-parameters" />
+    </option>
+  </component>
+</project>

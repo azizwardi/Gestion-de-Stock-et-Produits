@@ -1,0 +1,6 @@
+tn\esprit\gestion_de_stock_et_produits\GestionDeCommandes.class
+tn\esprit\gestion_de_stock_et_produits\CommandeRepository.class
+tn\esprit\gestion_de_stock_et_produits\StatutCommande.class
+tn\esprit\gestion_de_stock_et_produits\CommandeController.class
+tn\esprit\gestion_de_stock_et_produits\Commande.class
+tn\esprit\gestion_de_stock_et_produits\CommandeService.class

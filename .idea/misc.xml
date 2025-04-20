@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/GestionUser/pom.xml" />
+        <option value="$PROJECT_DIR$/GestionCommande/pom.xml" />
+        <option value="$PROJECT_DIR$/GestionProduits/pom.xml" />
+        <option value="$PROJECT_DIR$/Gestion-de-Stock/pom.xml" />
+        <option value="$PROJECT_DIR$/Eureka/pom.xml" />
+        <option value="$PROJECT_DIR$/Gateway/pom.xml" />
+        <option value="$PROJECT_DIR$/Gestion-de-Commandes/pom.xml" />
+        <option value="$PROJECT_DIR$/Gestion-de-Produits/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="jbr-17" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+</project>

@@ -1,0 +1,5 @@
+tn\esprit\gestion_de_stock_et_produits\Stock.class
+tn\esprit\gestion_de_stock_et_produits\StockService.class
+tn\esprit\gestion_de_stock_et_produits\StockController.class
+tn\esprit\gestion_de_stock_et_produits\StockRepository.class
+tn\esprit\gestion_de_stock_et_produits\GestionDeStock.class
