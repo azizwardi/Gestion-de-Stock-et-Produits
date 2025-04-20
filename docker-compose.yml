@@ -1,0 +1,152 @@
+# version: '3.8' (obsolète, supprimé pour éviter les avertissements)
+
+services:
+  eureka-server:
+    build: ./Eureka
+    image: "ghofraneghribi/ms-eureka-server:latest"
+    container_name: eureka-server
+    ports:
+      - "8762:8761"
+    networks:
+      - ms-network
+    restart: always
+
+  mysql-db:
+    image: mysql:5.7
+    container_name: mysql-db
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=Commmandes
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+    networks:
+      - ms-network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-ppassword"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: always
+
+  h2-database:
+    image: oscarfonts/h2
+    container_name: h2-database
+    ports:
+      - "1522:1521"
+      - "8083:8082"
+    networks:
+      - ms-network
+    environment:
+      - H2_OPTIONS=-ifNotExists -tcpAllowOthers
+    volumes:
+      - h2-data:/opt/h2-data
+    restart: always
+
+  gateway-service:
+    build: ./Gateway
+    image: "ghofraneghribi/ms-gateway-service:latest"
+    container_name: gateway-service
+    ports:
+      - "8093:8093"
+    depends_on:
+      - eureka-server
+    environment:
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://eureka-server:8761/eureka
+    networks:
+      - ms-network
+    restart: always
+
+  gestion-commande:
+    build: ./Gestion-de-Commandes
+    image: "ghofraneghribi/ms-gestion-commande:latest"
+    container_name: gestion-commande
+    ports:
+      - "8089:8089"
+    depends_on:
+      mysql-db:
+        condition: service_healthy
+      eureka-server:
+        condition: service_started
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql-db:3306/Commmandes?createDatabaseIfNotExist=true&useSSL=false
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=password
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+      - eureka.client.serviceUrl.defaultZone=http://eureka-server:8761/eureka
+    networks:
+      - ms-network
+    restart: on-failure
+
+  gestion-produit:
+    build: ./Gestion-de-Produits
+    image: "ghofraneghribi/ms-gestion-produit:latest"
+    container_name: gestion-produit
+    ports:
+      - "8081:8081"
+    depends_on:
+      - eureka-server
+      - h2-database
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:h2:mem:produit_db;DB_CLOSE_DELAY=-1
+      - SPRING_DATASOURCE_USERNAME=sa
+      - SPRING_DATASOURCE_PASSWORD=
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+      - SPRING_JPA_DATABASE_PLATFORM=org.hibernate.dialect.H2Dialect
+      - SPRING_H2_CONSOLE_ENABLED=true
+      - eureka.client.serviceUrl.defaultZone=http://eureka-server:8761/eureka
+    networks:
+      - ms-network
+    restart: on-failure
+
+  gestion-stock:
+    build: ./Gestion-de-Stock
+    image: "ghofraneghribi/ms-gestion-stock:latest"
+    container_name: gestion-stock
+    ports:
+      - "8088:8088"
+    depends_on:
+      - eureka-server
+      - h2-database
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:h2:mem:stock_db;DB_CLOSE_DELAY=-1
+      - SPRING_DATASOURCE_USERNAME=sa
+      - SPRING_DATASOURCE_PASSWORD=
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+      - SPRING_JPA_DATABASE_PLATFORM=org.hibernate.dialect.H2Dialect
+      - SPRING_H2_CONSOLE_ENABLED=true
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://eureka-server:8761/eureka
+    networks:
+      - ms-network
+    restart: on-failure
+
+  gestion-user:
+    build: ./GestionUser
+    image: "ghofraneghribi/ms-gestion-user:latest"
+    container_name: gestion-user
+    ports:
+      - "8085:8085"
+    depends_on:
+      - eureka-server
+      - h2-database
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:h2:mem:user_db;DB_CLOSE_DELAY=-1
+      - SPRING_DATASOURCE_USERNAME=sa
+      - SPRING_DATASOURCE_PASSWORD=
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+      - SPRING_JPA_DATABASE_PLATFORM=org.hibernate.dialect.H2Dialect
+      - SPRING_H2_CONSOLE_ENABLED=true
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://eureka-server:8761/eureka
+    networks:
+      - ms-network
+    restart: on-failure
+
+networks:
+  ms-network:
+    name: ms-network
+    driver: bridge
+
+volumes:
+  mysql-data:
+  h2-data:

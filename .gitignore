@@ -1,0 +1,15 @@
+# Fichiers de base de données H2
+*.mv.db
+*.trace.db
+
+# IntelliJ IDEA
+.idea/
+*.iml
+
+# Fichiers système
+.DS_Store
+Thumbs.db
+
+# Maven / Gradle
+target/
+build/
